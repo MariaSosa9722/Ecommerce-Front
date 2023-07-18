@@ -9,7 +9,6 @@ function AddUser() {
   return (
     <>
       <NavDash />
-
       <Formik
         initialValues={{
           UserName: "",
@@ -19,9 +18,17 @@ function AddUser() {
         // VER LOS VALORES QUE AGREGA EL USUARIO
         onSubmit={async(values, actions) => { 
             console.log(values)
-            await axios.post('http://localhost:3000/users', values)
-            actions.resetForm()
-             alert('Datos agregados correctamente')
+            
+            var res =await axios.post('http://localhost:3000/users', values)
+        
+
+              actions.resetForm()
+              alert('Datos agregados correctamente')
+              window.location = '/IndexUser'; 
+
+              
+
+          
           
              
         }}

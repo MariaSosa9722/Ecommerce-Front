@@ -9,6 +9,7 @@ import Home from './Pages/Home'
 import Formulario from './Pages/Formulario'
 import IndexUser from './Pages-Dash/IndexUser'
 import AddUser from './Pages-Dash/AddUser'
+import UpdUser from './Pages-Dash/UpdUser'
 
 
 function App() {
@@ -29,6 +30,11 @@ function App() {
     {
       path: "/AddUser",
       element : <AddUser/>
+
+    },
+    {
+      path: "/EditUser/:id",
+      element : <UpdUser/>
 
     }
 
