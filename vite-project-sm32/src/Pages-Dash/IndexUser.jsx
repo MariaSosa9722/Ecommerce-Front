@@ -15,6 +15,7 @@ function IndexUser() {
 
         const response = await axios.get('http://localhost:3000/users'); // Ruta de la API para obtener usuarios
         setUsers(response.data);//Metiendo la respuesta(data) al estado 
+        console.log('DAtos response ')
         console.log(response.data);
     }
 

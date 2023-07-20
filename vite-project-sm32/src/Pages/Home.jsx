@@ -8,27 +8,60 @@ import axios from 'axios';
 
 function Home() {
 
-    const [Users, setCatalogs] = useState([]);
+    const [Productos, setProductos] = useState([]);
 
     useEffect(() => {
         // Lógica para obtener los usuarios de la base de datos al cargar el componente
-        fetchUsers();
-      }, []);
-    
-      const fetchUsers = async () => {
-       
-          const response = await axios.get('http://localhost:3000/users'); // Ruta de la API para obtener catálogos
-      
-        
-          console.log(response.data);
-       
-      }
-    
+        fetchProductos();
+    }, []);
+
+    const fetchProductos = async () => {
+
+        const response = await axios.get('http://localhost:3000/producto'); // Ruta de la API para obtener catálogos
+        setProductos(response.data)
+
+        console.log(response.data);
+
+    }
+
     return (
-        <>  
-        <Header></Header>
-        <div className=' md:w-1/3 lg:w-2/ 1   container'>
-                <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae consectetur illo ipsam repellendus voluptate error natus, earum est rerum eligendi repudiandae reprehenderit soluta totam aperiam unde possimus esse nulla perspiciatis!</h1>
+        <>
+            <Header></Header>
+            <div className=' md:w-1/3 lg:w-2/ 1   container bg-clip-padding'>
+               
+
+            </div>
+
+            <div class="container">
+                <div className="row float-right">
+
+                    {Productos.map((productos) => (
+                        <div className="col-4 mt-6">
+
+
+
+
+                            <div className="card" >
+
+                                <div className="card-body">
+
+                                    <h2 className='font-bold text-lg'>{productos.Name}</h2>
+                                    <p className="card-text">  {productos.Description} </p>
+                                    <p className="card-text"> $ {productos.Price} MXN </p>
+                                    <br/>
+                                    <a href="#" className="btn btn-success">Go somewhere</a>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    ))}
+
+          
+                </div>
             </div>
             <Footer></Footer>
 
