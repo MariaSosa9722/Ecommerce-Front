@@ -10,6 +10,7 @@ import Formulario from './Pages/Formulario'
 import IndexUser from './Pages-Dash/IndexUser'
 import AddUser from './Pages-Dash/AddUser'
 import UpdUser from './Pages-Dash/UpdUser'
+import DetalleComp from './Pages/DetalleComp'
 
 
 function App() {
@@ -36,7 +37,13 @@ function App() {
       path: "/EditUser/:id",
       element : <UpdUser/>
 
+    },
+    {
+      path: "/detalleCompra",
+      element : <DetalleComp/>
+
     }
+
 
 
 
